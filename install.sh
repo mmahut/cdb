@@ -8,7 +8,7 @@ bold() { echo -e "\033[1m$@\033[0m"; }
 
 print_banner() {
   echo 
-  echo "_________________ "
+  echo " _________________ "
   echo "/  __ \  _  \ ___ \  Welcome to"
   echo "| /  \/ | | | |_/ /    Corporate Desktop"
   echo "| |   | | | | ___ \        Installer"
