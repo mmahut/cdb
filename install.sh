@@ -62,7 +62,7 @@ run_parted() {
 run_cryptsetup(){
   echo -n "[-] Encrypting the disk... "
   INST_PASSWD=$(diceware -s 1 -n 2);
-  INST_PASSWD_SHA512=$(echo -n $INST_PASSWD | mkpasswd -m sha-512 -)
+  INST_PASSWD_SHA512=$(mkpasswd  -m sha-512 -s <<< ${INST_PASSWD})
   echo -n $INST_PASSWD | cryptsetup -q luksFormat ${INST_DEVICE}2 -
   echo -n $INST_PASSWD | cryptsetup luksOpen ${INST_DEVICE}2 enc-pv -d -
   echo "done."
