@@ -63,8 +63,8 @@ run_cryptsetup(){
   echo -n "[-] Encrypting the disk... "
   INST_PASSWD=$(diceware -s 1 -n 2);
   INST_PASSWD_SHA512=$(mkpasswd  -m sha-512 -s <<< ${INST_PASSWD})
-  echo -n $INST_PASSWD | cryptsetup -q luksFormat ${INST_DEVICE}2 -
-  echo -n $INST_PASSWD | cryptsetup luksOpen ${INST_DEVICE}2 enc-pv -d -
+  echo -n $INST_PASSWD | cryptsetup -q luksFormat ${INST_DEVICE}p2 -
+  echo -n $INST_PASSWD | cryptsetup luksOpen ${INST_DEVICE}p2 enc-pv -d -
   echo "done."
 }
 
@@ -76,7 +76,7 @@ run_fssetup(){
   lvcreate -n root vg -l 100%FREE >/dev/null
   echo "done."
   echo -n "[-] Formating filesystems... "
-  mkfs.fat -F 32 -n boot ${INST_DEVICE}1 >/dev/null 2>&1
+  mkfs.fat -F 32 -n boot ${INST_DEVICE}p1 >/dev/null 2>&1
   mkfs.ext4 -L root /dev/vg/root >/dev/null >/dev/null 2>&1
   mkswap -L swap /dev/vg/swap >/dev/null 2>&1
   echo "done."
