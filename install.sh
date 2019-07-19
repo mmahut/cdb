@@ -25,10 +25,10 @@ print_banner() {
 }
 
 find_install_device() {
-  if [ -b /dev/sda ]; then
-    export INST_DEVICE="/dev/sda";
-  elif [ -b /dev/nvme0n1 ]; then
+  if [ -b /dev/nvme0n1 ]; then
     export INST_DEVICE="/dev/nvme0n1";
+  elif [ -b /dev/sda ]; then
+    export INST_DEVICE="/dev/sda";
   else
     echo "Installation device not found."
     read -p "Please specify the installation device manually: " -r < /dev/tty
