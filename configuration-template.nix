@@ -14,7 +14,7 @@
   boot.initrd.luks.devices = [
     {
       name = "root";
-      device = "##device##n2"; 
+      device = "##device##2"; 
       preLVM = true;
     }
   ];
