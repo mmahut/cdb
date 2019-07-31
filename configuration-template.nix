@@ -51,30 +51,31 @@
   # };
 
 
+  # Root password
+  users.users.root.initialHashedPassword = "##rootpasswd##";
+
   # Allow unfree proprietary packages such as spotify or vscode
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-
-  # Root password
-  users.users.root.initialHashedPassword = "##rootpasswd##";
   
   # KDE environment
   environment.systemPackages = with pkgs; [ 
     # System utilities
-    gitAndTools.gitFull
-    gparted
-    htop
-    gnupg
-    ntfs3g
-    vim
-    wget
-    unar
-    unzip
     ark
     dmidecode
+    gitAndTools.gitFull
+    gnupg
+    gparted
+    htop
+    ntfs3g
+    unar
+    unzip
+    vim
+    wget
     # Desktop utilities
+    audacious
     chromium
     dropbox
     evince
@@ -90,19 +91,12 @@
     notepadqq
     peek
     phototonic
+    slack
     spectacle
-    audacious
-    vlc
-    wine
-    bomi
     tdesktop
     thunderbird
-    # Gnome specific
-    adapta-gtk-theme
-    equilux-theme
-    gnome3.gnome-tweaks
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.dash-to-panel
+    vlc
+    wine
     # Other stuff
     (python3.withPackages(ps: with ps; [ trezor trezor_agent ]))
     # Optional stuff
@@ -148,10 +142,10 @@
   services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
   
   # Enable Lenovo/IBM touchpad support
-  # services.xserver.synaptics.enable = true;
+  services.xserver.synaptics.enable = true;
  
   # Default displayManager is LightDM
   # Enable SDDM displayManager
