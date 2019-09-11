@@ -102,7 +102,7 @@
     # Optional stuff
     #spotify
     #steam
-    #vscoce
+    #vscode
   ];
   
   # Some programs need SUID wrappers, can be configured further or are
