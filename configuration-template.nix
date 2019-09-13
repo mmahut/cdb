@@ -111,8 +111,6 @@
       then
         mkdir -p ~/.config/nixpkgs/
         echo  '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
-        nix-channel --add https://nixos.org/channels/nixos-unstable unstable
-        nix-channel --update
     fi
   '';
 
