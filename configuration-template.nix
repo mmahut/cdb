@@ -104,6 +104,18 @@
     #steam
     #vscoce
   ];
+
+  # Enabling unfree channel
+  environment.interactiveShellInit = ''
+    if [ ! -f ~/.config/nixpkgs/config.nix ]
+      then
+        mkdir -p ~/.config/nixpkgs/
+        echo  '{ allowUnfree = true; }' > ~/.config/nixpkgs/config.nix
+        nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+        nix-channel --update
+    fi
+  '';
+
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
