@@ -102,7 +102,7 @@
     # Optional stuff
     #spotify
     #steam
-    #vscoce
+    #vscode
   ];
 
   # Enabling unfree channel
