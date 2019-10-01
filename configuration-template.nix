@@ -152,7 +152,8 @@
   services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
+  # It is needed to explicitly disable libinput if we want to use synaptics
+  services.xserver.libinput.enable = false;
   
   # Enable Lenovo/IBM touchpad support
   services.xserver.synaptics.enable = true;
