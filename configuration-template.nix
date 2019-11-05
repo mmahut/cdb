@@ -120,6 +120,9 @@
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
+  # As GnuPG is now built without support for a graphical passphrase entry by default 
+  programs.gnupg.agent.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
