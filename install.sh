@@ -66,7 +66,7 @@ run_cryptsetup(){
   if [ -b /dev/nvme0n1 ]; then
     export INST_DEVICE=$INST_DEVICE"p"
   fi
-  echo -n $INST_PASSWD | cryptsetup -q luksFormat ${INST_DEVICE}2 -
+  echo -n $INST_PASSWD | cryptsetup -q --type luks1 luksFormat ${INST_DEVICE}2 -
   echo -n $INST_PASSWD | cryptsetup luksOpen ${INST_DEVICE}2 enc-pv -d -
   echo "done."
 }
