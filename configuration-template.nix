@@ -70,7 +70,6 @@
     gparted
     htop
     ntfs3g
-    unar
     unzip
     vim
     wget
